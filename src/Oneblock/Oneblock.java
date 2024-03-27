@@ -112,10 +112,10 @@ public class Oneblock extends JavaPlugin {
         final Metrics metrics = new Metrics(this, 14477);
         final PluginManager pluginManager = Bukkit.getPluginManager();
         getLogger().info(
-        		  "\n┏━┓····┏━━┓·····┏┓\n"
+                "\n┏━┓····┏━━┓·····┏┓\n"
         		  + "┃┃┣━┳┳━┫┏┓┣┓┏━┳━┫┣┓\n"
         		  + "┃┃┃┃┃┃┻┫┏┓┃┗┫╋┃━┫━┫\n"
-        		  + "┗━┻┻━┻━┻━━┻━┻━┻━┻┻┛ by MrMarL");
+        		  + "┗━┻┻━┻━┻━━┻━┻━┻━┻┻┛ by MrMarL a fork by MeHaVr");
         if (PAPI = pluginManager.isPluginEnabled("PlaceholderAPI")) {
         	getLogger().info("PlaceholderAPI has been found!");
             new OBP().register();
@@ -406,6 +406,17 @@ public class Oneblock extends JavaPlugin {
         Config.Save(config);
     }
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (cmd.getName().equalsIgnoreCase("spawn")) {
+            Player p = (Player) sender;
+            PlayerInfo.removeBarStatic(p);
+            if (config.getDouble("yleave") == 0 || leavewor == null) {
+                sender.sendMessage(String.format("%sSorry, but the position was not set.", ChatColor.YELLOW));
+                return true;
+            }
+            p.teleport(new Location(leavewor, config.getDouble("xleave"), config.getDouble("yleave"), config.getDouble("zleave"),
+                    (float)config.getDouble("yawleave"), 0f));
+            return true;}
+
         if (cmd.getName().equalsIgnoreCase("oneblock")) {
             //
             if (args.length == 0)
@@ -473,17 +484,7 @@ public class Oneblock extends JavaPlugin {
                 }
                 return true;
             }
-            case ("leave"):{
-                Player p = (Player) sender;
-                PlayerInfo.removeBarStatic(p);
-                if (config.getDouble("yleave") == 0 || leavewor == null) {
-                	sender.sendMessage(String.format("%sSorry, but the position was not set.", ChatColor.YELLOW));
-                	return true;
-                }
-                p.teleport(new Location(leavewor, config.getDouble("xleave"), config.getDouble("yleave"), config.getDouble("zleave"),
-                		(float)config.getDouble("yawleave"), 0f));
-                return true;
-            }
+            //Leave command was here
             case ("visit"):{
             	if (!sender.hasPermission("Oneblock.visit")) {
                     sender.sendMessage(Messages.noperm_inv);
@@ -1407,7 +1408,7 @@ public class Oneblock extends JavaPlugin {
         List<String> commands = new ArrayList<>();
 
         if (args.length == 1) {
-        	commands.addAll(Arrays.asList("j","join","leave","invite","accept","kick","ver","IDreset","help","gui","top"));
+        	commands.addAll(Arrays.asList("j","join","invite","accept","kick","ver","IDreset","help","gui","top"));
         	if (sender.hasPermission("Oneblock.visit")) commands.addAll(Arrays.asList("visit","allow_visit"));
             if (sender.hasPermission("Oneblock.set")) {
             	commands.addAll(Arrays.asList("set","setleave","Progress_bar","chat_alert","setlevel","clear","circlemode","lvl_mult","max_players_team", "chest", "saveplayerinventory",

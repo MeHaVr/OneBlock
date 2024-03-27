@@ -1,6 +1,6 @@
 name:  Oneblock
 main:  Oneblock.Oneblock
-version:  1.1.6f
+version:  1.1.7
 api-version: 1.13
 author:  MrMarL
 softdepend: [PlaceholderAPI , WorldGuard]
@@ -10,6 +10,10 @@ commands:
     description: Oneblock main command.
     aliases: ob
     usage: /ob join
+  spawn:
+    description: Spawn main command.
+    aliases: sp
+    usage: /spawn
   ob j:
   ob ver:
     description: Version.
