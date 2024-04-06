@@ -7,6 +7,11 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="codemc" />
+      <option name="name" value="codemc" />
+      <option name="url" value="https://repo.codemc.io/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="spigot-repo" />
       <option name="name" value="spigot-repo" />
       <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
@@ -35,6 +40,11 @@
       <option name="id" value="XSeriesOneBlock-main" />
       <option name="name" value="XSeriesOneBlock-main" />
       <option name="url" value="https://raw.github.com/MrMarL/XSeriesOneBlock/main/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jitpack" />
+      <option name="name" value="jitpack" />
+      <option name="url" value="https://jitpack.io/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="sk89q-repo" />

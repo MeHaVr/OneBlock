@@ -1,6 +1,7 @@
 // Copyright © 2024 MrMarL. All rights reserved.
 package Oneblock;
 
+import eu.decentsoftware.holograms.api.holograms.Hologram;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.util.Vector;
@@ -57,6 +58,7 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.generator.ChunkGenerator;
 import org.bukkit.inventory.Inventory;
+import eu.decentsoftware.holograms.api.DHAPI;
 
 public class Oneblock extends JavaPlugin {
     static final Random rnd = new Random(System.currentTimeMillis());
@@ -415,6 +417,7 @@ public class Oneblock extends JavaPlugin {
             }
             p.teleport(new Location(leavewor, config.getDouble("xleave"), config.getDouble("yleave"), config.getDouble("zleave"),
                     (float)config.getDouble("yawleave"), 0f));
+            sender.sendMessage(String.format("§x§F§B§0§0§F§8§lʟ§x§D§C§1§F§F§9§lʏ§x§B§C§3§E§F§A§lᴛ§x§9§D§5§D§F§B§lʜ§x§7§E§7§C§F§C§lɪ§x§5§E§9§A§F§C§lᴀ§x§3§F§B§9§F§D§l.§x§1§F§D§8§F§E§lᴅ§x§0§0§F§7§F§F§lᴇ §8| §7 Du wurdest zum §aSpawn§7 teleportiert§8!"));
             return true;}
 
         if (cmd.getName().equalsIgnoreCase("oneblock")) {
@@ -452,6 +455,14 @@ public class Oneblock extends JavaPlugin {
                 		Island.clear(wor, X_pl, y, Z_pl, sto/4);
                     if (il3x3)
                     	Island.place(wor, X_pl, y, Z_pl);
+
+                    if(DHAPI.getHologram("ONEBOCK-Island-holo-"+p.getName()) == null) {
+                        Hologram holo = DHAPI.createHologram("ONEBOCK-Island-holo-" + p.getName(), new Location(wor, X_pl+0.5, y+3, Z_pl+0.5), true);
+                        Material dirt = Material.GRASS_BLOCK;
+                        DHAPI.addHologramLine(holo, dirt);
+                        DHAPI.addHologramLine(holo, "§7ʜɪᴇʀ ɪꜱᴛ ᴅᴇʀ §x§F§B§7§1§0§0&lᴏ§x§F§C§8§5§0§0&lɴ§x§F§C§9§9§0§0&lᴇ§x§F§D§A§D§0§0&lʙ§x§F§D§C§0§0§0&lʟ§x§F§E§D§4§0§0&lᴏ§x§F§E§E§8§0§0&lᴄ§x§F§F§F§C§0§0&lᴋ§8!" );
+                    }
+
                     if (WorldGuard) {
                     	Vector Block1 = new Vector(X_pl - sto/2 + 1, 0, Z_pl - sto/2 + 1);
                     	Vector Block2 = new Vector(X_pl + sto/2 - 1, 255, Z_pl + sto/2 - 1);

@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>Oneblock</groupId>
   <artifactId>Oneblock</artifactId>
-  <version>1.1.6f</version>
+  <version>1.2.1</version>
   <build>
     <sourceDirectory>${src.dir}</sourceDirectory>
     <defaultGoal>clean package</defaultGoal>
@@ -73,6 +73,14 @@
       <id>WorldGuardOneBlock-main</id>
       <url>https://raw.github.com/MrMarL/WorldGuardOneBlock/main/</url>
     </repository>
+    <repository>
+      <id>jitpack</id>
+      <url>https://jitpack.io/</url>
+    </repository>
+    <repository>
+      <id>codemc</id>
+      <url>https://repo.codemc.io/repository/maven-public/</url>
+    </repository>
   </repositories>
   <dependencies>
     <dependency>
@@ -116,6 +124,12 @@
           <groupId>org.bstats</groupId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.github.decentsoftware-eu</groupId>
+      <artifactId>decentholograms</artifactId>
+      <version>2.8.6</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <properties>
