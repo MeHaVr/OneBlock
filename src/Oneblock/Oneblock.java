@@ -417,7 +417,7 @@ public class Oneblock extends JavaPlugin {
             }
             p.teleport(new Location(leavewor, config.getDouble("xleave"), config.getDouble("yleave"), config.getDouble("zleave"),
                     (float)config.getDouble("yawleave"), 0f));
-            sender.sendMessage(String.format("§x§F§B§0§0§F§8§lʟ§x§D§C§1§F§F§9§lʏ§x§B§C§3§E§F§A§lᴛ§x§9§D§5§D§F§B§lʜ§x§7§E§7§C§F§C§lɪ§x§5§E§9§A§F§C§lᴀ§x§3§F§B§9§F§D§l.§x§1§F§D§8§F§E§lᴅ§x§0§0§F§7§F§F§lᴇ §8| §7 Du wurdest zum §aSpawn§7 teleportiert§8!"));
+            sender.sendMessage(String.format("§x§F§B§0§0§F§8§lʟ§x§D§C§1§F§F§9§lʏ§x§B§C§3§E§F§A§lᴛ§x§9§D§5§D§F§B§lʜ§x§7§E§7§C§F§C§lɪ§x§5§E§9§A§F§C§lᴀ§x§3§F§B§9§F§D§l.§x§1§F§D§8§F§E§lᴅ§x§0§0§F§7§F§F§lᴇ §8| §7Du wurdest zum §aSpawn§7 teleportiert§8!"));
             return true;}
 
         if (cmd.getName().equalsIgnoreCase("oneblock")) {
@@ -456,8 +456,8 @@ public class Oneblock extends JavaPlugin {
                     if (il3x3)
                     	Island.place(wor, X_pl, y, Z_pl);
 
-                    if(DHAPI.getHologram("ONEBOCK-Island-holo-"+p.getName()) == null) {
-                        Hologram holo = DHAPI.createHologram("ONEBOCK-Island-holo-" + p.getName(), new Location(wor, X_pl+0.5, y+3, Z_pl+0.5), true);
+                    if(DHAPI.getHologram("ONEBOCK-Island-holo-"+uuid) == null) {
+                        Hologram holo = DHAPI.createHologram("ONEBOCK-Island-holo-" + uuid, new Location(wor, X_pl+0.5, y+3, Z_pl+0.5), true);
                         Material dirt = Material.GRASS_BLOCK;
                         DHAPI.addHologramLine(holo, dirt);
                         DHAPI.addHologramLine(holo, "§7ʜɪᴇʀ ɪꜱᴛ ᴅᴇʀ §x§F§B§7§1§0§0&lᴏ§x§F§C§8§5§0§0&lɴ§x§F§C§9§9§0§0&lᴇ§x§F§D§A§D§0§0&lʙ§x§F§D§C§0§0§0&lʟ§x§F§E§D§4§0§0&lᴏ§x§F§E§E§8§0§0&lᴄ§x§F§F§F§C§0§0&lᴋ§8!" );
