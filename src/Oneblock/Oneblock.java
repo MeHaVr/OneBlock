@@ -1135,17 +1135,11 @@ public class Oneblock extends JavaPlugin {
             }
             default:
             //ver
-            sender.sendMessage(String.format("%s%s\n%s\n%s\n%s\n%s%s 1.%d.X",
-            	ChatColor.values()[rnd.nextInt(ChatColor.values().length)],
-            	"  ▄▄    ▄▄",
-            	"█    █  █▄▀",
-            	"▀▄▄▀ █▄▀",
-            	"Create by MrMarL\nPlugin version: v1.1.6f",
-            	"Server version: ", superlegacy?"super legacy":(legacy?"legacy":""), XMaterial.getVersion()));
+            sender.sendMessage(String.format("§x§F§B§0§0§F§8§lʟ§x§D§C§1§F§F§9§lʏ§x§B§C§3§E§F§A§lᴛ§x§9§D§5§D§F§B§lʜ§x§7§E§7§C§F§C§lɪ§x§5§E§9§A§F§C§lᴀ§x§3§F§B§9§F§D§l.§x§1§F§D§8§F§E§lᴅ§x§0§0§F§7§F§F§lᴇ §8| §7Erstellt von §aMrMarl, bearbeitet von §eMeHaVr§8. \n §7Wenn Sie §eHilfe §7benötigen, geben Sie den Befehl §c/Hilfe§7 ein§8!"));
             return true;
             }
         } else {
-            sender.sendMessage(ChatColor.RED + "Error.");
+            sender.sendMessage(ChatColor.RED + "§x§F§B§0§0§F§8§lʟ§x§D§C§1§F§F§9§lʏ§x§B§C§3§E§F§A§lᴛ§x§9§D§5§D§F§B§lʜ§x§7§E§7§C§F§C§lɪ§x§5§E§9§A§F§C§lᴀ§x§3§F§B§9§F§D§l.§x§1§F§D§8§F§E§lᴅ§x§0§0§F§7§F§F§lᴇ §8| §7Wenn Sie §eHilfe §7benötigen, geben Sie den Befehl §c/Hilfe§7 ein§8!");
             return false;
         }
     }
