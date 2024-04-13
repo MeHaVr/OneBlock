@@ -396,10 +396,20 @@ public class Oneblock extends JavaPlugin {
         } 
         else XBlock.setType(block, blocks.get(random), physics);
 
-        if (rnd.nextInt(9) == 0) {
-            if ((random = lvl_inf.mobs) != 0) random = rnd.nextInt(random);
-            wor.spawnEntity(new Location(wor, X_pl + .5, y + 1, Z_pl + .5), mobs.get(random));
+        //mod random sheep aaaa
+
+        if (rnd.nextInt(18) == 0) {
+            // Überprüfe, ob die Anzahl der Mobs größer als 0 ist
+            if (lvl_inf.mobs > 0) {
+                // Wähle eine zufällige Mobart aus der Liste aus
+                int randomIndex = rnd.nextInt(mobs.size());
+                EntityType randomMob = mobs.get(randomIndex);
+
+                // Spawne die ausgewählte Kreatur an der Position
+                wor.spawnEntity(new Location(wor, X_pl + .5, y + 1, Z_pl + .5), randomMob);
+            }
         }
+
 	}
 
     public void onDisable() {
@@ -460,7 +470,7 @@ public class Oneblock extends JavaPlugin {
                         Hologram holo = DHAPI.createHologram("ONEBOCK-Island-holo-" + uuid, new Location(wor, X_pl+0.5, y+3, Z_pl+0.5), true);
                         Material dirt = Material.GRASS_BLOCK;
                         DHAPI.addHologramLine(holo, dirt);
-                        DHAPI.addHologramLine(holo, "§7ʜɪᴇʀ ɪꜱᴛ ᴅᴇʀ §x§F§B§7§1§0§0&lᴏ§x§F§C§8§5§0§0&lɴ§x§F§C§9§9§0§0&lᴇ§x§F§D§A§D§0§0&lʙ§x§F§D§C§0§0§0&lʟ§x§F§E§D§4§0§0&lᴏ§x§F§E§E§8§0§0&lᴄ§x§F§F§F§C§0§0&lᴋ§8!" );
+                        DHAPI.addHologramLine(holo, "§7ʜɪᴇʀ ɪꜱᴛ ᴅᴇʀ §x§F§B§7§1§0§0§lᴏ§x§F§C§8§5§0§0§lɴ§x§F§C§9§9§0§0§lᴇ§x§F§D§A§D§0§0§lʙ§x§F§D§C§0§0§0§lʟ§x§F§E§D§4§0§0§lᴏ§x§F§E§E§8§0§0§lᴄ§x§F§F§F§C§0§0§lᴋ§8!" );
                     }
 
                     if (WorldGuard) {
@@ -957,8 +967,7 @@ public class Oneblock extends JavaPlugin {
                     lvl_bar_mode = false;
                     if (PAPI) for (Player ponl : plonl)
                     	PlayerInfo.get(ponl.getUniqueId()).bar.setTitle(PlaceholderAPI.setPlaceholders(ponl, txt_bar));
-                    else 
-                    	for (PlayerInfo bb : PlayerInfo.list) bb.bar.setTitle(txt_bar);
+                    else for (PlayerInfo bb : PlayerInfo.list) bb.bar.setTitle(txt_bar);
                     config.set("Progress_bar_text", txt_bar);
                     TextP = txt_bar;
                     return true;

@@ -1,5 +1,6 @@
 package Oneblock.gui;
 
+import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,7 +25,7 @@ public class GUIListener implements Listener {
 	    if (!(he instanceof Player)) return;
 	    Player pl = (Player) he;
 	        
-	    if (inv.getSize() == 9) {
+	    if (inv.getSize() == 27) {
 		    if (GUI.baseGUI != null && GUI.baseGUI.equals(inv)) {
 		    	if (e.getClickedInventory() != inv) return;
 		        ItemStack item = e.getCurrentItem();
@@ -32,16 +33,31 @@ public class GUIListener implements Listener {
 		        pl.closeInventory();
 		        ItemMeta meta = item.getItemMeta();
 		        if (meta == null) return;
-		        String command = meta.getDisplayName();
-		        if (command.contains("/")) 
-		        	pl.performCommand(command.split("/")[1]);
-		    }
+		       	//String command = meta.getDisplayName();
+		       	//if (command.contains("/"))
+		       	//	pl.performCommand(command.split("/")[1]);
+
+				if (e.getCurrentItem().getType() == Material.GRASS_BLOCK) {
+					pl.performCommand("ob j");
+				}
+				if (e.getCurrentItem().getType() == Material.NETHER_STAR) {
+					pl.performCommand("spawn");
+				}
+				if (e.getCurrentItem().getType() == Material.GOLD_BLOCK) {
+					pl.performCommand("ob top");
+				}
+
+			}
 		    else {
-		    	pl.closeInventory();
-		        if (e.getRawSlot() == 2)
+		        if (e.getCurrentItem().getType() == Material.EMERALD_BLOCK)
 		        	pl.performCommand("ob accept");
-		    }
-        } else if (inv.getSize() == 54) {
+		    	}
+
+				if (e.getCurrentItem().getType() == Material.REDSTONE_BLOCK) {
+					pl.closeInventory();
+				}
+
+		} else if (inv.getSize() == 54) {
 		    if (e.getClickedInventory() != inv) return;
 	        ItemStack item = e.getCurrentItem();
 	        if (item == null) return;
